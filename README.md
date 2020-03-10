@@ -1,19 +1,2 @@
-# nesteaseapp
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+仿照网易云音乐，但是不会后端，只有前端，所以不使用axios。
+技术栈：vue, vue-router, ElementUI
