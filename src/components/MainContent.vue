@@ -51,7 +51,9 @@ export default {
             border: 1px solid #d3d3d3;
             height: 100%;
             header {
-                list-style: none;
+                ul {
+                    list-style: none;
+                }
             }
         }
     
