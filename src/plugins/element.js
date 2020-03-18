@@ -1,12 +1,24 @@
 import Vue from 'vue'
-import { Button, Header, Container, MenuItem, Submenu, Menu, Main, Aside} from 'element-ui'
-
+import {
+    Icon,
+    Button,
+    Dialog,
+    Header, 
+    Container, 
+    MenuItem, 
+    Menu, 
+    Main, 
+    Aside, 
+    Footer,
+    Message} from 'element-ui'
+Vue.prototype.$message = Message;
+Vue.use(Icon)
 Vue.use(Button)
 Vue.use(Header)
 Vue.use(Container)
 Vue.use(MenuItem)
-Vue.use(Submenu)
 Vue.use(Menu)
 Vue.use(Main)
 Vue.use(Aside)
-
+Vue.use(Footer)
+Vue.use(Dialog)

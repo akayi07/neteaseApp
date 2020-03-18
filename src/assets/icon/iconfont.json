@@ -1,0 +1,30 @@
+{
+  "id": "1676691",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5096293",
+      "name": "箭头-上",
+      "font_class": "jiantou",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "4636436",
+      "name": "标题圆圈",
+      "font_class": "biaotiyuanquan",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "2237670",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    }
+  ]
+}
