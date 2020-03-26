@@ -79,7 +79,7 @@ export default {
 </script>
 <style lang="less">
 .el-header.home {
-    background: url("../assets/1.jpg") no-repeat 100px #242424;
+    background: url("../assets/topbar.png") no-repeat 100px #242424;
     position: relative;
     span {
         color: #fff;

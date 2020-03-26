@@ -1,7 +1,7 @@
 <template>
 <div>
-    <ul class="topMenu">
-        <li @click="toPage('/discover')">推荐</li>
+    <ul class="topMenu" >
+        <li @click="toPage('/discover')" id="reco">推荐</li>
     </ul>
     <router-view></router-view>
 </div> 
@@ -11,11 +11,12 @@ export default {
     methods: {
         toPage(receiver){
             this.$router.push(receiver);
-            var a = document.getElementById(receiver);
-            var b = document.getElementsByClassName('top');
-            b.style.backgroundColor = '#c20c0c';
-            a.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+            document.getElementsByClassName('active')[0].removeAttribute('class');
+            event.currentTarget.setAttribute('class', 'active');
         }
+    },
+    mounted(){
+         document.getElementById('reco').setAttribute('class', 'active');
     }
 }
 </script>
@@ -24,6 +25,7 @@ ul {
     margin: 0;
     background: #c20c0c;
     padding-left: 280px;
+    
     li {
         vertical-align: middle;
         display: inline-block;
@@ -37,6 +39,9 @@ ul {
     li:hover {
         cursor: pointer;
         background-color: rgba(0, 0, 0, .3);
+    }
+    li.active {
+       background-color:rgba(0, 0, 0, .3);
     }
 }
 </style>

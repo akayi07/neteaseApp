@@ -93,7 +93,7 @@ const router = new VueRouter({
               component: MyArtist,
               beforeEnter: (to, from, next) => {
                 var alreadylogin = window.sessionStorage.getItem('token');
-                console.log(alreadylogin)
+                
                 if(alreadylogin){
                   next();
                 } else {
@@ -106,7 +106,7 @@ const router = new VueRouter({
               component: MyCollection,
               beforeEnter: (to, from, next) => {
                 var alreadylogin = window.sessionStorage.getItem('token');
-                console.log(alreadylogin)
+             
                 if(alreadylogin){
                   next();
                 } else {
@@ -119,7 +119,7 @@ const router = new VueRouter({
               component: MyVideo,
               beforeEnter: (to, from, next) => {
                 var alreadylogin = window.sessionStorage.getItem('token');
-                console.log(alreadylogin)
+          
                 if(alreadylogin){
                   next();
                 } else {
@@ -132,7 +132,7 @@ const router = new VueRouter({
               component: MyLoveMusic,
               beforeEnter: (to, from, next) => {
                 var alreadylogin = window.sessionStorage.getItem('token');
-                console.log(alreadylogin)
+
                 if(alreadylogin){
                   next();
                 } else {
