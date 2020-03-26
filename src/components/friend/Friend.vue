@@ -213,6 +213,8 @@ export default {
 .el-container {
   height: 100%;
   .el-main {
+    padding-right: 40px;
+    margin-right: 0;
     margin-left: 139.835px;
     width: 730px;
     border: 1px solid #d3d3d3;

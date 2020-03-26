@@ -15,7 +15,7 @@
             </ul>
             <div class="dload">
                 <el-button type="primary" class="iconfont iconxiazai">
-                    <a href="https://music.163.com/#/download">下载客户端</a>
+                    <a href="javascript:void(0)">下载客户端</a>
                 </el-button>
                 <p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
             </div>
@@ -259,7 +259,7 @@ div.slideshow {
     height: 100%;
     .el-main {
         margin-left: 139.835px;
-
+        margin-right: 0;
         width: 730px;
         border: 1px solid #d3d3d3;
         height: 100%;
