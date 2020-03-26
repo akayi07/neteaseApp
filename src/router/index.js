@@ -5,75 +5,173 @@ import Discover from '../components/discover/Discover.vue'
 import FindMusic from '../components/FindMusic.vue'
 import MyMusic from '../components/mymusic/MyMusic.vue'
 import MyMusicLogin from '../components/mymusic/MyMusicLogin.vue'
-import Friend from '../components/Friend.vue'
-import Download from '../components/Download.vue'
-import Toplist from '../components/findmusicothers/Toplist.vue'
-import Playlist from '../components/findmusicothers/Playlist.vue'
-import Djradio from '../components/findmusicothers/Djradio.vue'
-import Artist from '../components/findmusicothers/Artist.vue'
-import Album from '../components/findmusicothers/Album.vue'
-
-
+import FriendLogin from '../components/friend/FriendLogin.vue'
+import Friend from '../components/friend/Friend.vue'
+import MyCollection from '../components/mymusic/MyCollection.vue'
+import MyArtist from '../components/mymusic/MyArtist.vue'
+import MyVideo from '../components/mymusic/MyVideo.vue'
+import MyLoveMusic from '../components/mymusic/MyLoveMusic.vue'
+import Vincent from '../components/Vincent.vue'
+import Videoplanet from '../components/Videoplanet.vue'
 Vue.use(VueRouter)
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+};
 const router = new VueRouter({
   routes: [
+    
     {
       path: '/',
       component: Home,
-      children: [{
-          path: '/',
-          component: FindMusic,
-          children: [
-            {
-              path: '/',
-              component: Discover
-            },
-            {
-              path: '/discover',
-              component: Discover
-            },
-            {
-              path: '/toplist',
-              component: Toplist
-            },
-            {
-              path: '/playlist',
-              component: Playlist
-            },
-            {
-              path: '/djradio',
-              component: Djradio,
-
-            },
-            {
-              path: '/artist',
-              component: Artist
-            },
-            {
-              path: '/album',
-              component: Album
+      children: [
+          {
+            path: '/vincent',
+            component: Vincent,
+            beforeEnter: (to, from, next) => {
+              var alreadylogin = window.sessionStorage.getItem('token');
+              if(alreadylogin){
+                next();
+              } else {
+                next('/mylogin')
+              } 
             }
+          },
+          {
+              path: '/planet',
+              component: Videoplanet,
+              beforeEnter: (to, from, next) => {
+                var alreadylogin = window.sessionStorage.getItem('token');
+                if(alreadylogin){
+                  next();
+                } else {
+                  next('/mylogin')
+                } 
+              }      
+          },
+          {
+            path: '/',
+            component: FindMusic,
+            children: [
+              {
+                path: '/',
+                component: Discover
+              },
+              {
+                path: '/discover',
+                component: Discover
+              }
           ]
         },
         {
           path: '/mylogin',
-          component: MyMusicLogin
+          component: MyMusicLogin,
+          beforeEnter: (to, from, next) => {
+            var alreadylogin = window.sessionStorage.getItem('token');
+            if(alreadylogin){
+              next('/my');
+            } else {
+              next()
+            } 
+          }
         },
         {
           path: '/my',
-          component: MyMusic 
+          component: MyMusic,
+          redirect: '/myLoveMusic',
+          beforeEnter: (to, from, next) => {
+            var alreadylogin = window.sessionStorage.getItem('token');
+            if(alreadylogin){
+              next();
+            } else {
+              next('/mylogin')
+            } 
+          },
+          children: [
+            {
+              path: '/myArtist',
+              component: MyArtist,
+              beforeEnter: (to, from, next) => {
+                var alreadylogin = window.sessionStorage.getItem('token');
+                console.log(alreadylogin)
+                if(alreadylogin){
+                  next();
+                } else {
+                  next('/mylogin')
+                } 
+              }
+            },
+            {
+              path: '/myCollection',
+              component: MyCollection,
+              beforeEnter: (to, from, next) => {
+                var alreadylogin = window.sessionStorage.getItem('token');
+                console.log(alreadylogin)
+                if(alreadylogin){
+                  next();
+                } else {
+                  next('/mylogin')
+                } 
+              }
+            },
+            {
+              path: '/myVideo',
+              component: MyVideo,
+              beforeEnter: (to, from, next) => {
+                var alreadylogin = window.sessionStorage.getItem('token');
+                console.log(alreadylogin)
+                if(alreadylogin){
+                  next();
+                } else {
+                  next('/mylogin')
+                } 
+              }
+            },
+            {
+              path: '/myLoveMusic',
+              component: MyLoveMusic,
+              beforeEnter: (to, from, next) => {
+                var alreadylogin = window.sessionStorage.getItem('token');
+                console.log(alreadylogin)
+                if(alreadylogin){
+                  next();
+                } else {
+                  next('/mylogin')
+                } 
+              }
+            }
+
+          ]
+        },
+        {
+          path: '/friendlogin',
+          component: FriendLogin,
+          beforeEnter: (to, from, next) => {
+            var alreadylogin = window.sessionStorage.getItem('token');
+            if(alreadylogin){
+              next('/friend');
+            } else {
+              next();
+            } 
+          }
         },
         {
           path: '/friend',
-          component: Friend
-        },
-        {
-          path: '/download',
-          component: Download
-        }]
+          component: Friend,
+          beforeEnter: (to, from, next) => {
+            var alreadylogin = window.sessionStorage.getItem('token');
+  
+            if(alreadylogin){
+              next();
+            } else {
+              next('/friendlogin')
+            } 
+          }
+        }
+      ]
     },
     
   ]
 })
-
+          
 export default router

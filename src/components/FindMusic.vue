@@ -2,11 +2,6 @@
 <div>
     <ul class="topMenu">
         <li @click="toPage('/discover')">推荐</li>
-        <li @click="toPage('/toplist')">排行榜</li>
-        <li @click="toPage('/playlist')">歌单</li>
-        <li @click="toPage('/djradio')">主播电台</li>
-        <li @click="toPage('/artist')">歌手</li>
-        <li @click="toPage('/album')">新碟上架</li>
     </ul>
     <router-view></router-view>
 </div> 

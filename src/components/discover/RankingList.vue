@@ -101,6 +101,7 @@ export default {
 </script>>
 <style lang="less" scoped>
 .rankinglist{
+    margin-top: 20px;
     header {
         border-bottom: 2px solid #C10D0C;
         padding-bottom: 8px;

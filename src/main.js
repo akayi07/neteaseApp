@@ -4,10 +4,25 @@ import router from './router'
 import './plugins/element.js'
 import './assets/css/global.css'
 import './assets/icon/iconfont.css'
+
 require ('./assets/icon/iconfont.js')
 Vue.config.productionTip = false
 
 new Vue({
+  data(){
+    return {
+      dialogVisible: false,
+      songSrc: '',
+      imgSrc: '',
+      autoplay: false,
+      name: '',
+      artist: '',
+      videoSrc: '',
+      showExit: false,
+      activeItem: ''
+    }
+  },
   router,
   render: h => h(App)
 }).$mount('#app')
+

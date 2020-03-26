@@ -31,11 +31,29 @@
         </el-main>
         <!--推荐内容侧边栏-->
         <el-aside width="253px">
-            <section class="asideLogin">
+            <section class="asideLogin" v-if="!$root.showExit">
                 <p>
                     登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机
                 </p>
-                <button class="loginBtn"><span>用户登录</span></button>
+                <button class="loginBtn" @click="showLogin"><span>用户登录</span></button>
+            </section>
+            <section class="asideInfo" v-if="$root.showExit">
+                <img src="../../assets/avatar.png" class="avatar">
+                <p class="nickname">Nickname</p>          
+                <ul class="userInfo">
+                    <li class="info1">
+                        <p>3</p>
+                        <p>动态</p>
+                    </li>
+                    <li class="info2">
+                        <p>47</p>
+                        <p>关注</p>
+                    </li>
+                    <li class="info3">
+                        <p>6</p>
+                        <p>粉丝</p>
+                    </li>
+                </ul>
             </section>
             <section class="asideSinger">
                 <header>
@@ -125,7 +143,9 @@ export default {
         Newdisk, PopularRec, RankingList
     },
     methods: {
-        
+        showLogin() {
+            this.$root.dialogVisible = true;
+        },
         goPreImg(){
             clearInterval(this.interval)
             if(this.currentIndex > 0){
@@ -193,6 +213,8 @@ div.slideshow {
 
     ul {
         list-style: none;
+        margin: 0;
+        padding: 0;
         li {
             .fade-enter-active, .fade-leave-active {
                 transition: opacity .4s ease 0s;
@@ -236,7 +258,8 @@ div.slideshow {
 .el-container {
     height: 100%;
     .el-main {
-        margin-left: 139.835px; 
+        margin-left: 139.835px;
+
         width: 730px;
         border: 1px solid #d3d3d3;
         height: 100%;
@@ -252,6 +275,7 @@ div.slideshow {
                 margin: 20px;   
             }
             .loginBtn {
+                cursor: pointer;
                 background-color: #d00;
                 color: #fff;
                 border: 1px solid #d00;
@@ -262,8 +286,47 @@ div.slideshow {
                     display: inline-block;
                     margin: 6px 23px;
                 }
+            } 
+        }
+        .asideInfo {
+            width: 100%;
+            border: 1px solid #fff;
+            background-color:rgba(200 , 200 , 200, .2);
+            .avatar {
+                width: 80px;
+                height: 80px;
+                margin: 20px 0 20px 40px;          
+                vertical-align:middle;
             }
-            
+            p.nickname {
+                color: #333;
+                font-size: 14px;
+                display: inline-block;
+                margin-left: 20px;
+                position: relative;
+                top: -24px;
+            }
+            .userInfo {
+                padding-left: 20px;
+                list-style: none;
+                color: #666;
+                margin: 0 0 10px;
+                li {
+                padding-right: 10px;
+                display: inline-block;
+                border-right: 1px solid;
+                p {
+                    margin: 0;
+                }
+                }
+                .info2,
+                .info3 {
+                padding-left: 10px;
+                }
+                .info3 {
+                border-right: none;
+                }
+            }
         }
         .asideSinger {
             font-size: 12px;
